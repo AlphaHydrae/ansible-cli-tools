@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: Simon Oulevay (Alpha Hydrae)
+  description: Installs various useful command-line tools.
+  license: MIT
+  min_ansible_version: 2.0
+
+  platforms:
+    - name: Darwin
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - tools
+
+dependencies:
+  - role: AlphaHydrae.base-tools
+  - role: AlphaHydrae.git
+  - role: AlphaHydrae.go
+  - role: AlphaHydrae.python
+  - role: AlphaHydrae.vim
+  - role: AlphaHydrae.multipass
