@@ -1,29 +1,27 @@
+---
+
 # Yum
-- name: install base tools (yum)
-  yum: pkg={{ item }} state=latest
+- name: Install base tools (yum)
+  yum: pkg={{ item }} state=present
   with_items:
     - httpie
   when: ansible_pkg_mgr == 'yum'
 
-# MacPorts
-- name: install base tools (MacPorts)
-  macports: name={{ item }} state=installed
-  with_items:
-    - httpie
-    - jq
-  when: ansible_pkg_mgr == 'macports'
-
 # Homebrew
-- name: install base tools (Homebrew)
-  homebrew: name={{ item }} state=installed
+- name: Install base tools (Homebrew)
+  homebrew: name={{ item }} state=present
   become: true
-  become_user: "{{ cli_tools_user }}"
+  become_user: "{{ cli_tools_homebrew_user }}"
   with_items:
     - ack
     - direnv
     - httpie
     - jq
   when: ansible_pkg_mgr == 'homebrew'
+
+# Other package managers
+- fail: msg="{{ ansible_pkg_mgr }} is not a supported package manager (Homebrew or Yum are supported)"
+  when: ansible_pkg_mgr != 'yum' and ansible_pkg_mgr != 'homebrew'
 
 # jarg
 # FIXME: make "pip install jarg" work
@@ -33,22 +31,17 @@
 #    PATH: "{{ host_package_manager_paths }}{{ ansible_env.PATH }}"
 #  when: ansible_pkg_mgr == 'homebrew' or ansible_pkg_mgr == 'macports'
 
-# ack
-- name: mkdir /opt/bin
-  file: path=/opt/bin state=directory # TODO: add to root $PATH
+# Install ack from site
+- name: Make directory /opt/bin
+  file: path=/opt/bin state=directory
   when: ansible_pkg_mgr != 'homebrew'
-- name: install ack
+- name: Download ack
   get_url: url=http://beyondgrep.com/ack-2.14-single-file dest=/opt/bin/ack mode=0755 sha256sum=1d203cfbc52ce8f49e3992be1cd3e4d7d5dfb7daa3739e8628aa9858ccc5b9df
   when: ansible_pkg_mgr != 'homebrew'
 
-# direnv
-- name: clone direnv
+# Install direnv from repo
+- name: Clone direnv
   git: repo=https://github.com/zimbatm/direnv.git dest=/opt/direnv
   notify:
     - install direnv
-  when: ansible_pkg_mgr != 'homebrew' and ansible_pkg_mgr != 'macports'
-- name: clone direnv (macports)
-  git: repo=https://github.com/zimbatm/direnv.git dest=/opt/direnv executable=/opt/local/bin/git
-  notify:
-    - install direnv
-  when: ansible_pkg_mgr != 'homebrew' and ansible_pkg_mgr == 'macports'
+  when: ansible_pkg_mgr != 'homebrew'

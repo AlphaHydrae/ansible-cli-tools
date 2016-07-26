@@ -1,2 +1,2 @@
 ---
-cli_tools_user: "{{ user | default(omit) }}"
+cli_tools_homebrew_user: "{{ homebrew_user | default(user) | default(omit) }}"
