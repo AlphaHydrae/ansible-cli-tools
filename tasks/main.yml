@@ -16,6 +16,7 @@
     - ack
     - direnv
     - httpie
+    - htop
     - jq
   when: ansible_pkg_mgr == 'homebrew'
 
