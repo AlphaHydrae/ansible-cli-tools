@@ -18,6 +18,7 @@
     - httpie
     - htop
     - jq
+    - screen
   when: ansible_pkg_mgr == 'homebrew'
 
 # Other package managers
