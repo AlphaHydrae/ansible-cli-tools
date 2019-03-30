@@ -1,23 +1,34 @@
 ---
 
 # Yum
-- name: Install base tools (yum)
-  yum: pkg={{ item }} state=present
-  with_items:
-    - httpie
+- name: Install CLI tools (yum)
+  yum:
+    name:
+      - httpie
+    state: present
   when: ansible_pkg_mgr == 'yum'
 
 # Homebrew
-- name: Install base tools (Homebrew)
-  homebrew: name={{ item }} state=present
+- name: Install CLI tools (Homebrew)
+  homebrew:
+    name:
+      - ack
+      - awscli
+      - coreutils
+      - direnv
+      - findutils
+      - ffmpeg
+      - httpie
+      - htop
+      - imagemagick
+      - jq
+      - s3cmd
+      - screen
+      - tldr
+      - youtube-dl
+    state: present
   become: true
   become_user: "{{ cli_tools_homebrew_user }}"
-  with_items:
-    - ack
-    - direnv
-    - httpie
-    - htop
-    - jq
   when: ansible_pkg_mgr == 'homebrew'
 
 # Other package managers
