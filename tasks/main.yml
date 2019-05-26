@@ -18,6 +18,7 @@
       - direnv
       - findutils
       - ffmpeg
+      - fzf
       - httpie
       - htop
       - imagemagick
