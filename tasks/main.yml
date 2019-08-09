@@ -15,6 +15,7 @@
       - ack
       - awscli
       - bat
+      - bcrypt
       - coreutils
       - direnv
       - findutils
