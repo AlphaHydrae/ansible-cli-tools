@@ -9,6 +9,14 @@
   when: ansible_pkg_mgr == 'yum'
 
 # Homebrew
+- name: Tap Homebrew tools
+  homebrew_tap:
+    name: alphahydrae/tools
+    state: present
+  become: true
+  become_user: "{{ cli_tools_homebrew_user }}"
+  when: ansible_pkg_mgr == 'homebrew'
+
 - name: Install CLI tools (Homebrew)
   homebrew:
     name:
@@ -18,6 +26,7 @@
       - bcrypt
       - coreutils
       - direnv
+      - ensure-git-repos
       - findutils
       - ffmpeg
       - fzf
@@ -27,6 +36,7 @@
       - jq
       - s3cmd
       - screen
+      - tcpwait
       - tldr
       - youtube-dl
     state: present
