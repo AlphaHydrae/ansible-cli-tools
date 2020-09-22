@@ -34,6 +34,7 @@
       - htop
       - imagemagick
       - jq
+      - netcat
       - s3cmd
       - screen
       - tcpwait
