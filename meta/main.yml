@@ -19,11 +19,4 @@ galaxy_info:
 dependencies:
   - role: AlphaHydrae.base-tools
   - role: AlphaHydrae.git
-  - role: AlphaHydrae.go
-  - role: AlphaHydrae.multipass
-  - role: AlphaHydrae.nodenv-packages
-    nodenv_packages:
-      - name: "@alphahydrae/dgstore"
-        bin: dgstore
-  - role: AlphaHydrae.python
   - role: AlphaHydrae.vim
