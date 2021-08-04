@@ -37,6 +37,7 @@
       - netcat
       - parallel
       - s3cmd
+      - scide
       - screen
       - tcpwait
       - tldr
