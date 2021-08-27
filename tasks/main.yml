@@ -39,6 +39,7 @@
       - s3cmd
       - scide
       - screen
+      - sponge
       - tcpwait
       - tldr
       - youtube-dl
