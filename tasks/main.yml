@@ -30,6 +30,7 @@
       - findutils
       - ffmpeg
       - fzf
+      - gh
       - httpie
       - htop
       - imagemagick
