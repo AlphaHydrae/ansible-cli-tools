@@ -43,6 +43,7 @@
       - sponge
       - tcpwait
       - tldr
+      - yq
       - youtube-dl
     state: present
   become: true
