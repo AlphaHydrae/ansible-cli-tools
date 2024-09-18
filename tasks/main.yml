@@ -23,6 +23,7 @@
       - ack
       - awscli
       - bat
+      - bottom
       - bcrypt
       - coreutils
       - direnv
@@ -37,6 +38,7 @@
       - jq
       - netcat
       - parallel
+      - procs
       - s3cmd
       - scide
       - screen
