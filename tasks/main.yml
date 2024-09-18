@@ -44,7 +44,7 @@
       - tcpwait
       - tealdeer
       - yq
-      - youtube-dl
+      - yt-dlp
     state: present
   become: true
   become_user: "{{ cli_tools_homebrew_user }}"
