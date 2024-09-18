@@ -42,7 +42,7 @@
       - screen
       - sponge
       - tcpwait
-      - tldr
+      - tealdeer
       - yq
       - youtube-dl
     state: present
