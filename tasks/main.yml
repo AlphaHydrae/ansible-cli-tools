@@ -31,7 +31,6 @@
       - findutils
       - ffmpeg
       - fzf
-      - gh
       - httpie
       - htop
       - imagemagick
@@ -40,7 +39,6 @@
       - parallel
       - procs
       - s3cmd
-      - scide
       - screen
       - sponge
       - tcpwait
