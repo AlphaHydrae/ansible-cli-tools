@@ -43,6 +43,7 @@
       - sponge
       - tcpwait
       - tealdeer
+      - update-asdf-tools
       - yq
       - yt-dlp
       - zellij
