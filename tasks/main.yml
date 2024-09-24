@@ -27,6 +27,7 @@
       - bcrypt
       - coreutils
       - direnv
+      - duf
       - ensure-git-repos
       - findutils
       - ffmpeg
